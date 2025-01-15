@@ -12,6 +12,7 @@ export default function App() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
       const mimeTypes = [
+        'video/mp4; codecs="avc1"',
         'video/mp4;',
         'video/mp4; codecs="avc1.42E01E"',
         'video/webm; codecs="vp8"',
@@ -59,6 +60,11 @@ export default function App() {
   return (
     <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>MediaRecorder MIMEタイプ確認</h1>
+      <strong>video/mp4; codecs="avc1":</strong> {MediaRecorder.isTypeSupported('video/mp4; codecs="avc1"')}
+      <strong>video/mp4;:</strong> {MediaRecorder.isTypeSupported('video/mp4;')}
+      <strong>video/mp4; codecs="avc1.42E01E":</strong> {MediaRecorder.isTypeSupported('video/mp4; codecs="avc1.42E01E"')}
+      <strong>video/webm; codecs="vp8":</strong> {MediaRecorder.isTypeSupported('video/webm; codecs="vp8"')}
+      <strong>video/webm; codecs="vp9":</strong> {MediaRecorder.isTypeSupported('video/webm; codecs="vp9"')}
       <button onClick={startRecording}>録画を開始</button>
       <button onClick={stopRecording} style={{ marginLeft: '10px' }}>
         録画を停止
