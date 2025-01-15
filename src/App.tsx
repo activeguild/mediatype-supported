@@ -5,8 +5,8 @@ export default function App() {
   const [mimeTypeAfter, setMimeTypeAfter] = useState('');
   const [error, setError] = useState('');
   const [videoURL, setVideoURL] = useState('');
-  const mediaRecorderRef = useRef(null);
-  const recordedChunks = useRef([]);
+  const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+  const recordedChunks = useRef<Blob[]>([]);
 
   const startRecording = async () => {
     try {
@@ -39,7 +39,7 @@ export default function App() {
       setError('');
       console.log('録画を開始しました');
     } catch (err) {
-      setError(`エラーが発生しました: ${err.message}`);
+      setError(`エラーが発生しました: ${err}`);
     }
   };
 
