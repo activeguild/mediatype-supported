@@ -12,8 +12,8 @@ export default function App() {
     try {
       const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
       const mimeTypes = [
-        'video/webm; codecs="vp9"',
         'video/mp4;',
+        'video/webm; codecs="vp9"',
         'video/mp4; codecs="avc1"',
         'video/mp4; codecs="avc1.42E01E"',
         'video/webm; codecs="vp8"',
